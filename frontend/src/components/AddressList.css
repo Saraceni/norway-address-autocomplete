@@ -1,0 +1,75 @@
+.address-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.address-list-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.15s ease;
+}
+
+.address-list-item:last-child {
+  border-bottom: none;
+}
+
+.address-list-item:hover,
+.address-list-item--highlighted {
+  background-color: #f0f7ff;
+}
+
+.address-list-item__content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.address-list-item__street {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.address-list-item__details {
+  font-size: 13px;
+  color: #666;
+}
+
+/* Focus styles for keyboard navigation */
+.address-list-item:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: -2px;
+}
+
+/* Scrollbar styling */
+.address-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.address-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.address-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.address-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

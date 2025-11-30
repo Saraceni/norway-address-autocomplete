@@ -16,13 +16,17 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
 });
 
 // Search endpoint
-app.get('/search/:query', (req: Request, res: Response, next: NextFunction) => {
+app.get('/search/:query', async (req: Request, res: Response, next: NextFunction) => {
     try {
         // URL decode the query parameter to handle special characters like ø, å, æ
         const query = decodeURIComponent(req.params.query);
 
         // Perform search
         const results = addressSearchService.search(query);
+
+        // Delay the result by a random time between 0 and 1000 milliseconds to emulate a real server response time
+        const delay = Math.random() * 1000;
+        await new Promise(resolve => setTimeout(resolve, delay));
 
         // Return JSON array
         res.json(results);
@@ -36,7 +40,7 @@ app.get('/monitoring', (_req: Request, res: Response) => {
 });
 
 // Error handling middleware
-app.use((err: Error, _req: Request, res: Response) => {
+app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
     console.error('Error:', err);
     res.status(500).json({ error: 'Internal server error' });
 });
