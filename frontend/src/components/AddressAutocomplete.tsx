@@ -51,7 +51,7 @@ export function AddressAutocomplete({
   const handleSelect = useCallback(
     (address: Address) => {
       justSelectedRef.current = true;
-      const displayValue = `${address.street} ${address.municipalityNumber} ${address.postNumber} ${address.municipality}`;
+      const displayValue = `${address.street} ${address.municipalityNumber}, ${address.postNumber}, ${address.municipality}`;
       setInputValue(displayValue);
       setIsOpen(false);
       setHighlightedIndex(-1);

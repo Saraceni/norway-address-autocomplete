@@ -37,9 +37,9 @@ export function AddressList({
           }}
         >
           <div className="address-list-item__content">
-            <div className="address-list-item__street">{address.street}</div>
+            <div className="address-list-item__street">{address.street} {address.municipalityNumber}</div>
             <div className="address-list-item__details">
-              {address.postNumber} {address.city}
+              {address.postNumber} {address.municipality}
             </div>
           </div>
         </li>
